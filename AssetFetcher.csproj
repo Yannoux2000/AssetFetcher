@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Version>1.0.0</Version>
+    <GameVersion>2020.12.9s</GameVersion>
+    <Mappings>NuclearPowered/Mappings:0.1.2</Mappings>
+
+    <Description>Mod for having More and fuller translation support for among us</Description>
+    <Authors>inXS212</Authors>
+    <RepositoryUrl>https://github.com/inXS212/BetterLanguages</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/inXS212/BetterLanguages</PackageProjectUrl>
+    <RepositoryType>Github</RepositoryType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(GamePlatform)' == 'Steam'">
+    <GameVersion>2020.12.9s</GameVersion>
+    <DefineConstants>$(DefineConstants);STEAM</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(GamePlatform)' == 'Itch'">
+    <GameVersion>2020.11.17i</GameVersion>
+    <DefineConstants>$(DefineConstants);ITCH</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Reactor.OxygenFilter.MSBuild" Version="0.2.5" />
+  </ItemGroup>
+
+  <Target Name="Copy" AfterTargets="Reobfuscate">
+    <Copy SourceFiles="$(OutputPath)reobfuscated/$(AssemblyName)-$(GameVersion).dll" DestinationFolder="$(AmongUs)/BepInEx/plugins/" Condition="'$(Configuration)' == 'Debug'" />
+  </Target>
+</Project>
