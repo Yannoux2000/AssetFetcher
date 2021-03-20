@@ -1,4 +1,4 @@
-# UnityAssetFetcher !WIP!
+# UnityAssetFetcher !V1.0 is out!
 UnityAssetFetcher is a library that can be used in Unity to set properties to values not available at Editor time. **(for mod edition)**
 
 # How to use
