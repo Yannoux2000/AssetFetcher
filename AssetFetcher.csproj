@@ -9,4 +9,36 @@
     <PackageProjectUrl>https://github.com/inXS212/BetterLanguages</PackageProjectUrl>
     <RepositoryType>Github</RepositoryType>
   </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="_Libs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>_Libs\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="AssemblyUnhollower">
+      <HintPath>_Libs\AssemblyUnhollower.dll</HintPath>
+    </Reference>
+    <Reference Include="BepInEx.Core">
+      <HintPath>_Libs\BepInEx.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="BepInEx.IL2CPP">
+      <HintPath>_Libs\BepInEx.IL2CPP.dll</HintPath>
+    </Reference>
+    <Reference Include="Il2Cppmscorlib">
+      <HintPath>_Libs\Il2Cppmscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="UnhollowerBaseLib">
+      <HintPath>_Libs\UnhollowerBaseLib.dll</HintPath>
+    </Reference>
+    <Reference Include="UnhollowerRuntimeLib">
+      <HintPath>_Libs\UnhollowerRuntimeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>_Libs\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>_Libs\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>
