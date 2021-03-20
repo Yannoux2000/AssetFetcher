@@ -3,29 +3,29 @@ using System.Collections.Generic;
 
 namespace AssetFetcher
 {
-    class Ressources : Singleton<Ressources>
+    class AssetsManager : Singleton<AssetsManager>
     {
         private Dictionary<string, object> Ress = new Dictionary<string, object>();
 
         public static void Register<T>(string key, T obj)
         {
-            Ressources.Instance.Register(key, obj);
+            AssetsManager.Instance.Register(key, obj);
         }
         public static T AssignHard<T>(string key)
         {
             T asset;
-            if (!Ressources.Instance.Get(key, out asset))
+            if (!AssetsManager.Instance.Get(key, out asset))
             {
-                throw new System.Exception($"Couldn't Retrieve Material:{key} from {typeof(Ressources).Name}, Report this error to the mod developper.");
+                throw new System.Exception($"Couldn't Retrieve Material:{key} from {typeof(AssetsManager).Name}, Report this error to the mod developper.");
             }
             return asset;
         }
         public static T AssignSoft<T>(string key)
         {
             T asset;
-            if (!Ressources.Instance.Get(key, out asset))
+            if (!AssetsManager.Instance.Get(key, out asset))
             {
-                throw new System.Exception($"Couldn't Retrieve Material:{key} from {typeof(Ressources).Name}, Report this error to the mod developper.");
+                throw new System.Exception($"Couldn't Retrieve Material:{key} from {typeof(AssetsManager).Name}, Report this error to the mod developper.");
             }
             return asset;
         }

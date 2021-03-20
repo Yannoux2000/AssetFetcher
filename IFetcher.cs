@@ -12,7 +12,6 @@ namespace AssetFetcher
     [AttributeUsage(AttributeTargets.Class, Inherited = false)]
     class AssetFetcherAttribute : Attribute
     {
-
         private readonly byte when;
 
         public AssetFetcherAttribute(byte when = 0)
