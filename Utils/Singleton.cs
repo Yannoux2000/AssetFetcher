@@ -12,13 +12,7 @@ namespace AssetFetcher.Utils
             {
                 if (_instance == null)
                 {
-                    lock (_lock)
-                    {
-                        if (_instance == null)
-                        {
-                            _instance = new T();
-                        }
-                    }
+                    _instance = new T();
                 }
                 return _instance;
             }

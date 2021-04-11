@@ -3,13 +3,11 @@ using System.Reflection;
 
 namespace AssetFetcher.Importers
 {
-    internal interface ImporterHandler { 
-        public Type Type { get; }
-    };
+
     public abstract class IImporter<T> : ImporterHandler
     {
         public Type Type { get => typeof(T); }
-        public virtual T GetAsset(string Name) => AssetsManager.AssignHard<T>(Name);
+        public virtual T GetAssetHard(string Name) => AssetsManager.AssignHard<T>(Name);
         public virtual T GetAssetSoft(string Name) => AssetsManager.AssignSoft<T>(Name);
 
         public abstract T GetEmbeddedAssetBundle(string Path, string Name, Assembly assembly);

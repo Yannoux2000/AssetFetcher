@@ -5,10 +5,15 @@
 
     <Description>Mod helping to set easier assets managements for all !</Description>
     <Authors>inXS212</Authors>
-    <RepositoryUrl>https://github.com/inXS212/BetterLanguages</RepositoryUrl>
-    <PackageProjectUrl>https://github.com/inXS212/BetterLanguages</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/inXS212/AssetFetcher</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/inXS212/AssetFetcher</PackageProjectUrl>
     <RepositoryType>Github</RepositoryType>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="__Exemples\**" />
+    <EmbeddedResource Remove="__Exemples\**" />
+    <None Remove="__Exemples\**" />
+  </ItemGroup>
   <ItemGroup>
     <Folder Include="_Libs\" />
   </ItemGroup>
@@ -37,8 +42,18 @@
     <Reference Include="UnityEngine">
       <HintPath>_Libs\UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>_Libs\UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>_Libs\UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.CoreModule">
       <HintPath>_Libs\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
   </ItemGroup>
+  
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Copy SourceFiles="$(TargetDir)$(TargetName).dll" DestinationFiles="$(AmongUs)\BepInEx\plugins\$(TargetName).dll" />
+  </Target>
 </Project>
